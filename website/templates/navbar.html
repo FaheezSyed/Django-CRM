@@ -17,18 +17,22 @@
 
         
       </ul>
-      {% if user.autenticated %}
+  {% if user.is_authenticated %}
         <form class="d-flex" action="{% url 'logout' %}" method="post">
           {% csrf_token %}
           <button class="btn btn-secondary" type="submit">Logout</button>
         </form>
-      {% endif %}
+      
       {% else %}
-        <form class="d-flex" action="{% url 'home' %}" method="post">
+        <!-- <form class="d-flex" action="{% url 'home' %}" method="post">
           {% csrf_token %}
           <button class="btn btn-secondary" type="submit">Login</button>
+        </form> -->
+        <form class="d-flex" action="{% url 'register' %}" method="post">
+          {% csrf_token %}
+          <button class="btn btn-secondary" type="submit">Sign in</button>
         </form>
-      {% end %}
+      {% endif %}
      
     </div>
   </div>
