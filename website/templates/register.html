@@ -1,1 +1,22 @@
-<h1> register </h1>
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="col-md-6 offset-md-3">
+    <h1>Register</h1>
+    <br/>
+    <form method="post">
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="mb-3">
+          {{ field.label_tag }}
+          {{ field }}
+          {% for error in field.errors %}
+            <div class="text-danger"><small>{{ error }}</small></div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-secondary">Register</button>
+    </form>
+</div>
+{% endblock %}

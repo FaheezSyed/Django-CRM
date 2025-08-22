@@ -18,20 +18,16 @@
         
       </ul>
   {% if user.is_authenticated %}
-        <form class="d-flex" action="{% url 'logout' %}" method="post">
-          {% csrf_token %}
-          <button class="btn btn-secondary" type="submit">Logout</button>
-        </form>
-      
+
+          <li><a class="btn btn-secondary" href="{% url 'add_record' %}">Add record</a></li>
+          <li><a class="btn btn-secondary" href="{% url 'logout' %}">Logout</a></li>
       {% else %}
         <!-- <form class="d-flex" action="{% url 'home' %}" method="post">
           {% csrf_token %}
-          <button class="btn btn-secondary" type="submit">Login</button>
+          <button class="btn btn-secondary me-2" type="submit">Login</button>
         </form> -->
-        <form class="d-flex" action="{% url 'register' %}" method="post">
-          {% csrf_token %}
-          <button class="btn btn-secondary" type="submit">Sign in</button>
-        </form>
+        <li><a class="btn btn-secondary" href="{% url 'register' %}">Register</a></li>
+        
       {% endif %}
      
     </div>
